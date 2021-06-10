@@ -14,9 +14,9 @@ This project is part of [DIH^2](http://www.dih-squared.eu/). For more informatio
 ## Contents
 
 -   [Background](#background)
--   [Install](#install)
--   [Usage](#usage)
--   [API](#api)
+-   [Installation guide](#installation-guide)
+-   [Quickstart and step-by-step guides](#quickstart-and-step-by-step-guides)
+-   [API](#api-guide)
 -   [Testing](#testing)
 -   [License](#license)
 
@@ -47,7 +47,7 @@ How to install the component
 Information about how to install the FlexHex ROSE-AP can be found at the corresponding section of the
 [Installation & Administration Guide](installationguide.md).
 
-## Quickstart and step-by-step guide
+## Quickstart and step-by-step guides
 
 How to use the component
 

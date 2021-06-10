@@ -17,9 +17,9 @@ This project is part of [DIH^2](http://www.dih-squared.eu/). For more informatio
 ## Contents
 
 -   [Background](#background)
--   [Install](#install)
--   [Usage](#usage)
--   [API](#api)
+-   [Installation guide](#installation-guide)
+-   [Quickstart and step-by-step guides](#quickstart-and-step-by-step-guides)
+-   [API](#api-guide)
 -   [Testing](#testing)
 -   [License](#license)
 
@@ -31,10 +31,10 @@ It tries to do so via WEB interface and for more advanced use cases - API.
 
 Currently there are four main parts that user/operator can control:
 
-- Measurements - Measurement to be processed from incoming Orion Context Broker subscription data and uploaded into influx-db. User defines entities and their types for the Orion Context Broker subscription. Also fields and tags to gather from the Orion Context Broker entity.
-- Buckets - Used to define buckets of the influx-db. Allows to assign different measurements.
-- Organizations -  Used to define organizations of the influx-db. Allows to assign different buckets.
-- Subscriptions - Used to control selected measurement subscription. [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (Create, read, update and delete) principle. Main use case - automatically form the required subscription for the selected measurement and post it to Orion Context Broker.
+- **Measurements** - Measurement to be processed from incoming Orion Context Broker subscription data and uploaded into influx-db. User defines entities and their types for the Orion Context Broker subscription. Also fields and tags to gather from the Orion Context Broker entity.
+- **Buckets** - Used to define buckets of the influx-db. Allows to assign different measurements.
+- **Organizations** -  Used to define organizations of the influx-db. Allows to assign different buckets.
+- **Subscriptions** - Used to control selected measurement subscription. [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (Create, read, update and delete) principle. Main use case - automatically form the required subscription for the selected measurement and post it to Orion Context Broker.
 
 It is based on Orion Context Broker entities and subscriptions, and is NGSIv2 compliant to process the incoming data into Line Protocol for influx-db.
 
@@ -52,7 +52,7 @@ How to install the component
 Information about how to install the FlexHex ROSE-AP can be found at the corresponding section of the
 [Installation & Administration Guide](docs/installationguide.md).
 
-## Quickstart and step-by-step guide
+## Quickstart and step-by-step guides
 
 How to use the component
 
