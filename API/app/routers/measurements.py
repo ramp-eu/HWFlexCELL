@@ -1,6 +1,6 @@
 import logging
 
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Request, status
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 import orjson
@@ -50,7 +50,7 @@ async def get_measurement(request: Request, measurement: str):
     return {measurement: measurements_obj[measurement]}
 
 
-@router.post("/add_measurement")
+@router.post("/add_measurement", status_code=status.HTTP_201_CREATED)
 async def add_measurement(request: Request, data: dict):
     """
     ## Create a new measurement.
@@ -67,10 +67,10 @@ async def add_measurement(request: Request, data: dict):
     measurements_obj[measurement] = data["measurement_data"]
     await redis.set_key("influxdb_measurements", orjson.dumps(measurements_obj))
     logger.info("Measurement %s added.", measurement)
-    return HTMLResponse(content="Measurement {} added.".format(measurement), status_code=200)
+    return {"message": "Measurement {} added.".format(measurement)}
 
 
-@router.post("/update_measurement/{measurement}")
+@router.post("/update_measurement/{measurement}", status_code=status.HTTP_202_ACCEPTED)
 async def update_measurement(request: Request, measurement: str, data: dict):
     """
     ## Update selected measurement.
@@ -91,7 +91,7 @@ async def update_measurement(request: Request, measurement: str, data: dict):
     measurements_obj[measurement] = data["measurement_data"]
     await redis.set_key("influxdb_measurements", orjson.dumps(measurements_obj))
     logger.info("Measurement %s updated", measurement)
-    return HTMLResponse(content="Measurement {} updated".format(measurement), status_code=200)
+    return {"message": "Measurement {} updated".format(measurement)}
 
 
 @router.delete("/delete_measurement/{measurement}")
